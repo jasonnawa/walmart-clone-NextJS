@@ -1,0 +1,30 @@
+.form{
+   display: flex;
+   width: 100%;
+   
+}
+.footer-list{
+   display: flex;
+   justify-content: space-between;
+   list-style-type: none; /* Remove bullets */
+ 
+}
+.footer-list > li{
+   display: inline-block;
+   font-size: 14px;
+   
+}
+
+.footer-list2{
+
+   list-style-type: none; /* Remove bullets */
+ 
+}
+
+.footer-list2 > li{
+   margin-bottom: 20px;
+   font-size: 14px;
+   
+}
+
+
