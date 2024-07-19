@@ -39,7 +39,7 @@ function toggleSideBar2(){
         <Flex
         flexDir="column"
         flexGrow={1}
-        height="100vh"
+        
         onClick ={()=> {
           return (sideBar? toggleSideBar2() : undefined)}}
         >
