@@ -1,4 +1,6 @@
-import { Container, Heading, Box, Flex, Text, Button} from "@chakra-ui/react"
+'use client'
+import { Container, Heading, Box, Flex, Text, Button, Link} from "@chakra-ui/react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import image1 from "@/public/homepageimages/Discount.jpg"
 import image2 from "@/public/homepageimages/rollbacks.jpg"
@@ -10,14 +12,36 @@ import image7 from "@/public/homepageimages/silver.jpg"
 import image8 from "@/public/homepageimages/camp.jpg"
 import image9 from "@/public/homepageimages/banner.jpg"
 import image10 from "@/public/homepageimages/kids.jpg"
-import product from "@/public/productimage/Camera.jpg"
+//import product from "@/public/productimage/Camera.jpg"
+
+
 
 
 const Home = ()=>{
+
+  const [products, setProduct] = useState([])
+
+useEffect(()=>{
+    async function fetchData(){
+        let data = await fetch("https://fakestoreapi.com/products")
+        data = await data.json()
+        setProduct(data)
+        console.log(data)
+    }
+    fetchData()
+
+},[]);
+
+//utlity function for truncation
+const truncateDescription = (description, wordLimit) =>{
+  const words = description.split(' ');
+  return words.slice(0, wordLimit).join(' ') + (words.length > wordLimit ?"...": "");
+}
+  
   return(
-    <>
-   <section>
-    <Flex marginBlock={10} flexDirection="row" mr={5} ml={5}>
+    < >
+   <section className="container">
+    <Flex marginBlock={10} flexDirection="row" mr={5}>
 
       <Flex flexDirection="column" mr={4}>
         <Box mb={4}><Image src={image1} /></Box>
@@ -46,8 +70,9 @@ const Home = ()=>{
     </section>
 
 
-     <section>
-      <Box  px={6}>
+     <Flex flexDirection="column" width="100vw" >
+      
+      <Box  px={6} mr={4}>
       <Flex flexDirection="row" justify="space-between">
       <Text fontSize="25px" ><strong>Flash Deals</strong></Text>
      <u>View all</u>
@@ -57,21 +82,21 @@ const Home = ()=>{
       </Box>
 
 
-    <Flex  px={6} flexDirection="row"  pt={7}>
-      <Box width={200} mr={8}>
-        <Image height={250} src={product}/>
-        <Text color="green"><strong>Now $70.99</strong></Text>
-        <Text>Vlogging Camera 4K Digital Camera for...</Text>
-        <Button bg="transparent" borderWidth={2} borderRadius={20} borderColor="black"> +Add</Button>
-
-      </Box>
-
-      <Box width={200}>
-        <Image height={250}  src={product}/>
-        <Text color="green"><strong>Now $70.99</strong></Text>
-        <Text>Vlogging Camera 4K Digital Camera for...</Text>
-        <Button bg="transparent" borderWidth={2} borderRadius={20} borderColor="black" py={2}> Options</Button>
-      </Box>
+    <Flex  px={6}  pt={7} height="400px" overflowX="scroll"  overflowY="hidden"mr={5}>
+      {products.map((product)=>{
+        return (
+          <Link href="/productDetails">
+          <Box minW={180} maxW={220} mr={8} key={product.id}>
+          <Image height= {250} width={150} src={product.image}/>
+          <Text color="green"><strong>${product.price}</strong></Text>
+          <Text>{truncateDescription(product.description,6)}</Text>
+          <Button bg="transparent" borderWidth={2} borderRadius={20} borderColor="black" mt={2}> +Add</Button>
+  
+        </Box>
+        </Link>
+        )
+      })}
+      
 
     </Flex>
 
@@ -93,7 +118,7 @@ const Home = ()=>{
 
 
 
-     </section>
+     </Flex>
 
 
 

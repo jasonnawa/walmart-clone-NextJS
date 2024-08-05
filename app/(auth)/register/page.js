@@ -1,5 +1,5 @@
 'use client'
-import { Container, Flex, Box, Heading,Input, FormControl, FormLabel, Button } from "@chakra-ui/react"
+import { Container, Flex, Box, Heading,Input, FormControl, FormLabel, Button, Link } from "@chakra-ui/react"
 
 import Image from "next/image"
 import logo from "@/public/walmart.png"
@@ -53,7 +53,7 @@ const Register = ()=>{
             <Box  mb={5} mt={6}><small>By clicking Create Account, you acknowledge you have read and agreed to our <u>Terms of Use</u>
             and <u>Privacy Policy</u>.Message and data rates may apply. View our <u>Mobile Alerts Terms</u>.</small></Box>
 
-            <Flex width="100%" mt={5}> <Button borderRadius={20} bg="rgb(0, 113, 220)" width="100%" color="white"> Continue </Button></Flex>
+            <Flex width="100%" mt={5}><Link href="/" width="100%"> <Button borderRadius={20} bg="rgb(0, 113, 220)" width="100%" color="white"> Continue </Button></Link></Flex>
           </FormControl>
 
         </form>

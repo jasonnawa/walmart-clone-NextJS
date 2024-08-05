@@ -50,7 +50,7 @@ function toggleSideBar2(){
           />
           <DeliveryDetails />
           <MenuBar/>
-          <MenuBar2/>
+          
           {children}
 
           <HomeFooter />

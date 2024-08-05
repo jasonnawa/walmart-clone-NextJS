@@ -1,9 +1,10 @@
 'use client'
-import { Container, Flex, Box, Heading,Input, FormControl, FormLabel, Button } from "@chakra-ui/react"
+import { Container, Flex, Box, Heading,Input, FormControl, FormLabel, Button, Link } from "@chakra-ui/react"
 
 import Image from "next/image"
 import logo from "@/public/walmart.png"
 import "@/public/index.css"
+
 
 const Login = ()=>{
     return(
@@ -23,7 +24,7 @@ const Login = ()=>{
               Email Address
             </FormLabel>
             <Input type="email" name="email" />
-            <Flex width="100%" mt={5}> <Button borderRadius={20} bg="rgb(0, 113, 220)" width="100%" color="white"> Continue </Button></Flex>
+            <Flex width="100%" mt={5}> <Link href="/register" width="100%"><Button borderRadius={20} bg="rgb(0, 113, 220)" width="100%" color="white"> Continue </Button></Link></Flex>
           </FormControl>
 
         </form>

@@ -1,7 +1,7 @@
 'use client'
 import "../public/index.css"
 
-import { Flex, Box, Button, Text, HStack, Icon, Input, Center, InputGroup, Img, IconButton } from "@chakra-ui/react"
+import { Flex, Box, Button, Text, HStack, Icon, Input, Center, InputGroup, Img, IconButton, Link } from "@chakra-ui/react"
 import Image from "next/image"
 import logo from "../public/walmart.png"
 import {FaRegHeart} from "react-icons/fa"
@@ -26,7 +26,7 @@ import{Menu, MenuButton, MenuList, MenuItem, MenuItemOption, MenuGroup, MenuOpti
 const NavBar = (props)=>{
     return(
        
-        <Flex as="nav" bg="#0071ce" alignItems="center" justify ="space-around" px="25px" py="9px" align="center" color="white" >
+        <Flex as="nav" bg="#0071ce" alignItems="center" justify ="space-around" px="25px" py="9px" align="center" color="white">
 
 
             <Box display= {{lg : "none"}} > 
@@ -92,7 +92,7 @@ const NavBar = (props)=>{
 
                 <MenuItem as="div" bg="#0071ce" >
                 <Box borderTopRadius={10} py={3} px={5} borderBottomRadius={10}
-                display="flex" flexDirection="row" width="100%" textAlign="start" bg="white" color="black"alignItems="center" >
+                display="flex" flexDirection="row" width="100%" textAlign="start" bg="white" color="black" alignItems="center" >
                     <Box marginRight={2}>
                    <Image src={delivery} width={35} height={35} />
                    </Box>
@@ -123,19 +123,19 @@ const NavBar = (props)=>{
                 <Box display= {{base : "none", lg:"block"}}>
             <Button  bg="#0071ce" borderRadius={29} py={6} color="white" >
                 <Box><Icon as= {FaRegHeart}/></Box> 
-               <Box><p>Reorder</p><Text><strong>My Items</strong></Text></Box>
+               <Box><p><small>Reorder</small></p><Text><strong>My Items</strong></Text></Box>
             </Button>
             </Box>
 
             <Box display= {{base : "none", lg:"block"}}>
             <Button  bg="#0071ce"  borderRadius={29} py={6} color="white">
             <Box><Icon as= {HiOutlineUser}/></Box>
-                <Box><p>Sign In</p><Text><strong>Account</strong></Text></Box>
+               <Link href="/login"> <Box><p><small>Sign In</small></p><Text><strong>Account</strong></Text></Box></Link>
             </Button>
             </Box>
 
             <Button  bg="#0071ce"  borderRadius={29} py={6} color="white">
-                <span><Box><Icon as= {LuShoppingCart}/><Text> $0.00</Text></Box></span>
+            <Link href="/cart">  <span><Box><Icon as= {LuShoppingCart}/><Text> $0.00</Text></Box></span> </Link>
             </Button>
             </HStack>
 

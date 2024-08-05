@@ -7,7 +7,7 @@ const HomeFooter = ()=>{
     return(
         <>
 
-       <Flex width="100%" px={40} py={5} bg="rgb(0, 79, 154)" color="white" flexDirection="column" textAlign="center"  display= {{base : "none",lg : "block"}}>
+       <Flex width="100%" px={40} py={5} bg="rgb(0, 79, 154)" color="white" flexDirection="column" textAlign="center"  display= {{base : "none",lg : "block"}} mt={50}>
 
         <ul className="footer-list">
             <li>All Departments</li>
